@@ -35,12 +35,12 @@ public:
                sortie<<"Standard\n";
        return sortie;
    };
-    double conditionnement()
+  virtual double conditionnement()
     {
         double cout=volume_par_dos*nb_dos*COND_UNITE ;
         return cout;
     };
-    double fabrication(){
+   virtual double fabrication(){
         double cout=volume_par_dos*nb_dos*PRIX_BASE;
         if(mode_fabrication==HighTech)
         {cout+=cout*MAJORATION_HIGHTECH;
@@ -66,15 +66,8 @@ public:
             return c-c*REDUCTION_DELOC;
         return c/2;
     };
-    //friend ostream& operator<<(ostream& out,const delocalise& d)
-    //{ out<<d;
-        //if(d.pays_front)
-            //out<<"delocaliser\n";
-         //else
-             //out<<"non delocaliser \n";
-        //return out;
-    //};
 };
+
 class compagni
 {private:
     string nomComp;
