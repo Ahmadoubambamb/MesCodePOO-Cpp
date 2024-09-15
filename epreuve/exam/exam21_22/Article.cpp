@@ -5,11 +5,17 @@ Article::Article(const string& numref,const string& desing,double prix):num_refe
     prix_achat=prix;
 }
 
-ostream& operator<<(ostream& out,const Article& ar)
-{ out<<"numero de reference: "<<ar.num_reference<<endl
-     <<"designation: "<<ar.designation<<endl
-     <<"prix d'achat: "<<ar.prix_achat<<endl;
+ostream& Article::afficher(ostream& out) const
+{
+  out<<"numero de reference: "<<num_reference<<endl
+     <<"designation: "<<designation<<endl
+     <<"prix d'achat: "<<prix_achat<<endl;
   return out;
+}
+
+ostream& operator<<(ostream& out,const Article& ar)
+{
+  return ar.afficher(out);
 }
 
 double Article::prix()
