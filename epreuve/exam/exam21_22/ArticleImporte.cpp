@@ -4,11 +4,9 @@ ArticleImporte::ArticleImporte(const string& numref,const string& desi,double pr
     taxe_import=tax;
 }
 
-ostream& operator<<(ostream& out,const ArticleImporte& ai)
-{ out<<"numero de reference: "<<ai.num_reference<<endl
-     <<"designation: "<<ai.designation<<endl
-     <<"prix d'achat: "<<ai.prix_achat<<endl
-     <<"taxe d'importation: "<<ai.taxe_import<<endl;
+ostream& ArticleImporte::afficher(ostream& out) const
+{    Article::afficher(out);
+     out<<"taxe d'importation: "<<taxe_import;
      return out;
 }
 
