@@ -8,6 +8,7 @@ class Article
     string num_reference;
     string designation;
     double prix_achat;
+virtual ostream& afficher(ostream&) const;
 public:
     Article(const string&,const string&,double);
     virtual ~Article(){};
