@@ -18,7 +18,7 @@ void Magasin::ajouter(Article *a)
 
 void Magasin::afficher()
 {
-    for(int i=0;longueur;i++)
+    for(int i=0;i<longueur;i++)
         cout<<*stock[i]<<endl<<"------------------------------------\n";
 
 }
