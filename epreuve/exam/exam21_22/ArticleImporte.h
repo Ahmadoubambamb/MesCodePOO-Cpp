@@ -7,7 +7,7 @@ class ArticleImporte: public Article
 public:
     ArticleImporte(const string&,const string&,double,double);
     virtual ~ArticleImporte(){};
-    friend ostream& operator<<(ostream&,const ArticleImporte&);
+    ostream& afficher(ostream&) const;
     double prix();
 };
 
