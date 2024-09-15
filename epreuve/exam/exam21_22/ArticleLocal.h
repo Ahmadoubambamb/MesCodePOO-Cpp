@@ -8,7 +8,7 @@ class ArticleLocal:public Article
 public:
     ArticleLocal(const string&,const string&,double,double);
     virtual ~ArticleLocal(){};
-    friend ostream& operator<<(ostream& ,const ArticleLocal&);
+   ostream& afficher(ostream&) const;
     double prix();
 };
 
