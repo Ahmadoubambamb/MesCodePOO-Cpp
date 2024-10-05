@@ -14,9 +14,10 @@ class courier
     string adr_exp;
     string adr_dest;
     double montant;
+     virtual ostream& afficher(ostream&) const;
 public:
     courier(double,mode_exp,const string&,const string&,double);
-    virtual void afficher();
+    friend ostream& operator<<(ostream&,const courier&);
     virtual double calculprix_timbre()=0;
 };
 
@@ -25,7 +26,7 @@ class lettre: public courier
     format form;
 public:
     lettre(double ,mode_exp ,const string& ,const string& ,format,double );
-    void afficher();
+    ostream& afficher(ostream&) const;
     double calculprix_timbre();
 };
 
@@ -34,7 +35,7 @@ class colis: public courier
     double volume;
 public:
     colis(double,mode_exp,const string&,const string&,double,double);
-    void afficher();
+    ostream& afficher(ostream&) const;
     double calculprix_timbre();
 };
 
@@ -49,6 +50,6 @@ public:
     Boite_aux_Lettre(double ,double ,int );
     virtual ~Boite_aux_Lettre();
     void ajouter(courier*);
-    void afficher();
+    void afficher() const;
 };
 #endif
