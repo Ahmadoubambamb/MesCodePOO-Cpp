@@ -6,30 +6,35 @@ courier::courier(double p,mode_exp m,const string& ade,const string& add,double 
   montant=amount;
 }
 
- void courier::afficher()
-    {cout<<"le poids: "<<poids<<endl
+ ostream& courier::afficher(ostream& out) const
+    {out<<"le poids: "<<poids<<endl
          <<"mode expedition: ";
          if(mode==normal)
              cout<<"normal"<<endl;
             else
                 cout<<"Express"<<endl;
-     cout<<"adresse d'expedition: "<<adr_exp<<endl
+     out<<"adresse d'expedition: "<<adr_exp<<endl
          <<"adresse de destination: "<<adr_dest<<endl
          <<"montant: "<<montant<<endl;
+         return out;
     }
-
+ostream& operator<<(ostream& out,const courier& c)
+{
+    return c.afficher(out);
+}
 
 lettre::lettre(double p,mode_exp m,const string& ade,const string& add, format f,double mo):courier(p,m,ade,add,mo)
 {
     form=f;
 }
 
-void lettre::afficher()
-{this->courier::afficher();
+ostream& lettre::afficher(ostream& out) const
+{this->courier::afficher(out);
     if(form==A3)
-        cout<<"format: A3"<<endl;
+        out<<"format: A3"<<endl;
     else
-        cout<<"format: A4"<<endl;
+        out<<"format: A4"<<endl;
+    return out;
 }
 
 double lettre::calculprix_timbre()
@@ -51,9 +56,10 @@ colis::colis(double p,mode_exp m,const string& ade,const string& add,double v,do
   volume=v;
 }
 
-void colis::afficher()
-{ this->courier::afficher();
-    cout<<"volume: "<<volume<<endl;
+ostream& colis::afficher(ostream& out) const
+{ this->courier::afficher(out);
+    out<<"volume: "<<volume<<endl;
+    return out;
 }
 
 double colis::calculprix_timbre()
@@ -83,10 +89,11 @@ void Boite_aux_Lettre::ajouter(courier *cr)
     if(longeur<max) c[longeur++]=cr;
 }
 
-void Boite_aux_Lettre::afficher()
+void Boite_aux_Lettre::afficher() const
 {
     for(int i=0;i<longeur;i++)
-    {c[i]->afficher();
+    {//c[i]->afficher();
+     cout<<*c[i];
      cout<<"\n----------------------------\n";
     }
 }
