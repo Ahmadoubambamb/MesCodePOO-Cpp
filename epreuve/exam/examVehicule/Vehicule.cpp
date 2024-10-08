@@ -82,8 +82,7 @@ int main()
 /*----- la definition des class vehicule ------------*/
 Vehicule::Vehicule(const string& mark,int da,double pa):marque(mark)
 {
-    prix_achat=prix_courant=pa;
-    //prix_courant=pc;
+    prix_achat=prix_courant=pa;
     date_achat=da;
 }
 
