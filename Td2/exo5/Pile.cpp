@@ -10,7 +10,7 @@ pile::pile(int n)
 
 pile::~pile()
 { cout<<"apel du destructeur: adr="<<this<<endl;
-  delete adr;
+ if(adr) delete adr;
 }
 
 void pile::empiler(int x)

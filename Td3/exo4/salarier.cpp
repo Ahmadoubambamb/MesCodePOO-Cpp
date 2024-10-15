@@ -38,7 +38,7 @@ char* salarie::get_prenom()const
 }
 
 salarie& salarie::operator=(salarie& s)
-{
+{ if(this==&s) return *this;
 	if(nom)
 		delete nom;
 	if(prenom)
