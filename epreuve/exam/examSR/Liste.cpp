@@ -23,7 +23,6 @@ Liste::~Liste()
     p1=debut;
      while(p1)
      { p2=p1->suiv;
-
          delete p1;
          p1=p2;
      }
