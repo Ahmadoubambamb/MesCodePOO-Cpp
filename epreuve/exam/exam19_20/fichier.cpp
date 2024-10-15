@@ -38,16 +38,16 @@ ostream& lettre::afficher(ostream& out) const
 }
 
 double lettre::calculprix_timbre()
-{ if(mode==express)
-     montant*=2;
-    else
-    { int tarif_de_base;
+{
+    
+    int tarif_de_base;
         if(form==A3)
             tarif_de_base=350;
         else
             tarif_de_base=250;
         montant=tarif_de_base+1.0*poids;
-    }
+     if(mode==express)
+     montant*=2;
     return montant;
 }
 
@@ -63,12 +63,10 @@ ostream& colis::afficher(ostream& out) const
 }
 
 double colis::calculprix_timbre()
-{ if(mode==express)
-     montant*=2;
-   else
-   {
+{
     montant=0.25*volume + 1.0*poids;
-   }
+    if(mode==express)
+     montant*=2;
    return montant;
 }
 
