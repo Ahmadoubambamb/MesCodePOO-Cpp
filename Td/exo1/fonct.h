@@ -6,7 +6,7 @@ using namespace std;
 struct Matrice
 {int nb_colonne;
   int nb_ligne;
-float **element;
+float **element;// l'aadress de la matrice 
 };
 void *erreur();
 Matrice *creer_matrice(int,int);
