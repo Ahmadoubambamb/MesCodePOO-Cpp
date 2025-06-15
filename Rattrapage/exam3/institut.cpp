@@ -140,7 +140,7 @@ public:
 };
 
 int main(){
-    Secretaire S("Fatou",2005,"Informatique");
+    Secretaire S("Christine",2005,"Informatique");
     Enseignant E("Bamba",2015,"Informatique","science",2000000);
     EtudiantEtranger Ee("Kougoue",2022,"L3","Tchad");
     EtudiantSenegalais Es("Cheikh",2022,"L3","Bien");
